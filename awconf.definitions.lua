@@ -47,6 +47,7 @@ autos =
     "urxvtc -n urx-var2 &",
     "urxvtc -n urx-news -e newsbeuter &",
     "urxvtc -n urx-mail -e mutt &",
+    "urxvtc -n urx-mail -e slrn &",
     "urxvtc -n urx-log -e screen -c /home/sighter/.screenrc-log &",
     "firefox &",
 }
