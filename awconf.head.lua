@@ -23,6 +23,6 @@ dofile( config_path .. 'awconf.signals.lua')			-- add signals to the clients
 
 
 -- execute the autostart
-autostart(autos)
+-- autostart(autos)
 
 -- vim:ft=lua

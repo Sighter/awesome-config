@@ -161,24 +161,18 @@ vicious.register(fswidget_home_text, vicious.widgets.fs,
 myn.brackl .. '<span color="lightblue">Home:</span> ${/home used_gb} | <span color="white">${/home size_gb}</span>' .. myn.brackr , 120)
 awful.widget.layout.margins[fswidget_home_text] = { left = 6, right = 6}
 
--- win 2 - production
-fswidget_win2_text = widget({ type = 'textbox' ,align = "left" ,name = "feswidget_win2_text"   })
-vicious.register(fswidget_win2_text, vicious.widgets.fs, 
-myn.brackl .. '<span color="lightblue">Win2:</span> ${/media/win2 used_gb} | <span color="white">${/media/win2 size_gb}</span>' .. myn.brackr , 120)
-awful.widget.layout.margins[fswidget_win2_text] = { left = 6, right = 6}
-
--- win 3 - files
-fswidget_win3_text = widget({ type = 'textbox' ,align = "left" ,name = "feswidget_win3_text"   })
-vicious.register(fswidget_win3_text, vicious.widgets.fs, 
-myn.brackl .. '<span color="lightblue">Win3:</span> ${/media/win3 used_gb} | <span color="white">${/media/win3 size_gb}</span>' .. myn.brackr , 120)
-awful.widget.layout.margins[fswidget_win3_text] = { left = 6, right = 6}
 
 -- CPU Useage
 cpuwidget =	widget({type = 'textbox',name = 'cpuwidget'})
-vicious.register(cpuwidget, vicious.widgets.cpu, myn.brackl .. '<span color="lightblue">CPU:</span> $1% $2% $3% $4% ' .. myn.brackr , 2)
+vicious.register(cpuwidget, vicious.widgets.cpu, myn.brackl .. '<span color="lightblue">CPU:</span> $1% $2%' .. myn.brackr , 2)
 awful.widget.layout.margins[cpuwidget] = { left = 6, right = 6}
 
--- Thermal monitoring
+-- Battery
+batwidget =	widget({type = 'textbox',name = 'batwidget'})
+vicious.register(batwidget, vicious.widgets.bat, myn.brackl .. '<span color="lightblue">Bat:</span> $2% $1 ' .. myn.brackr , 2, "BAT0")
+awful.widget.layout.margins[batwidget] = { left = 6, right = 6}
+
+--[[ Thermal monitoring
 -- CPU 1
 cputherm1 =	widget({type = 'textbox',name = 'cputherm1'})
 vicious.register(cputherm1, vicious.widgets.thermal , myn.brackl .. '<span color="lightblue">CPU Therm:</span> $1°', 2, {"coretemp.0","core"})
@@ -198,6 +192,7 @@ awful.widget.layout.margins[cputherm4] = { right = 6}
 hddtemp1 =	widget({type = 'textbox',name = 'hddtemp1'})
 vicious.register(hddtemp1, vicious.widgets.hddtemp, myn.brackl .. '<span color="lightblue">Hddtemp:</span> ${/dev/sda}° | ${/dev/sdb}° ' .. myn.brackr , 2)
 awful.widget.layout.margins[hddtemp1] = { left = 6, right = 6}
+--]]
 
 -- Net Stats
 netwidget =	widget({type = 'textbox',name = 'netwidget'})
@@ -231,21 +226,16 @@ awful.widget.layout.margins[volimage] = { left = 6}
 
 -- fill the wibox
 sightbox[1] = awful.wibox({ position = "bottom", fg = beautiful.fg_normal, bg = beautiful.bg_normal, screen = 1})
-sightbox[2] = awful.wibox({ position = "bottom", fg = beautiful.fg_normal, bg = beautiful.bg_normal, screen = 2})
 sightbox[1].widgets = { 
 		{
 			cpuwidget,
-			cputherm1,
-			cputherm2,
-			cputherm3,
-			cputherm4,
-			hddtemp1,
-			layout = awful.widget.layout.horizontal.leftright,
-		},
-		{
 			fswidget_root_text,
 			fswidget_var_text,
 			fswidget_home_text,
+			layout = awful.widget.layout.horizontal.leftright,
+		},
+		{
+			batwidget,
 			pacmimage,
 			pacmwidget,
 			netwidget,
@@ -254,26 +244,7 @@ sightbox[1].widgets = {
 		layout = awful.widget.layout.horizontal.leftright,
         height = sightbox[1].height
 }
-
-sightbox[2].widgets = {
-		{
-			mpdwidget,
-			layout = awful.widget.layout.horizontal.leftright,
-		},
-		{
-			fswidget_win2_text,
-			fswidget_win3_text,
-			volimage,
-			volumewidget,
-			layout = awful.widget.layout.horizontal.rightleft,
-		},
-		layout = awful.widget.layout.horizontal.leftright,
-        height = sightbox[2].height
-}
 				
-
-
-
 
 
 -- place it on screen one

@@ -24,12 +24,9 @@ awful.rules.rules = {
 
     
 	-- Firefox
-    { rule = { instance = "Navigator" }, properties = { tag = tags[2][1] } },
+    { rule = { instance = "Navigator" }, properties = { tag = tags[1][2] } },
 	
 	-- Misc apps
-    { rule = { instance = "envy24control" },properties = { tag = tags[2][5] } },
-    { rule = { instance = "twinkle" }, 		properties = { tag = tags[1][7] } },
-    { rule = { name = "opengl" }, 			properties = { tag = tags[2][4], floating = true } },
 
     { rule = { class = "gimp" }, 		properties = { floating = true } },
     { rule = { class = "feh" }, 		properties = { floating = true } },
@@ -40,16 +37,16 @@ awful.rules.rules = {
     { rule = { icon_name = "urx-irssi" }, 	properties = { tag = tags[1][1] } },
     { rule = { icon_name = "urx-mail" }, 	properties = { tag = tags[1][2] } },
     { rule = { icon_name = "urx-news" },	properties = { tag = tags[1][2] } },
-    { rule = { icon_name = "urx-sound" }, 	properties = { tag = tags[2][5] } },
+	-- { rule = { icon_name = "urx-sound" }, 	properties = { tag = tags[2][5] } },
     { rule = { icon_name = "urx-var1" },	properties = { tag = tags[1][3] } },
     { rule = { icon_name = "urx-var2" },	properties = { tag = tags[1][4] } },
     { rule = { icon_name = "urxvt-short" },	properties = { floating = true } },
-	{ rule = { icon_name = "urx-log" }, 	properties = {tag = tags[2][6], floating = true } },
+	-- { rule = { icon_name = "urx-log" }, 	properties = {tag = tags[2][6], floating = true } },
 	
 	-- Documents
-    { rule = { instance = "abiword" },	properties = { tag = tags[2][3] } },
-    { rule = { instance = "evince" },	properties = { tag = tags[2][3] } },
-    { rule = { instance = "Gnumeric" },	properties = { tag = tags[2][3] } },
+    -- { rule = { instance = "abiword" },	properties = { tag = tags[2][3] } },
+    -- { rule = { instance = "evince" },	properties = { tag = tags[2][3] } },
+    -- { rule = { instance = "Gnumeric" },	properties = { tag = tags[2][3] } },
 }
 
 sightness.placethem.rules.rules = {
