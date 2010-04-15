@@ -196,7 +196,12 @@ awful.widget.layout.margins[hddtemp1] = { left = 6, right = 6}
 
 -- Net Stats
 netwidget =	widget({type = 'textbox',name = 'netwidget'})
-vicious.register(netwidget, vicious.widgets.net, myn.brackl .. '<span color="lightblue">Net:</span> ${eth0 down_kb}/${eth0 up_kb}' .. myn.brackr,3)
+netstat = io.popen("ifconfig"):read("*a")
+if string.find(netstat,"wlan0") then
+		vicious.register(netwidget, vicious.widgets.net, myn.brackl .. '<span color="lightblue">Wlan:</span> ${eth0 down_kb}/${eth0 up_kb}' .. myn.brackr,3)
+else
+		vicious.register(netwidget, vicious.widgets.net, myn.brackl .. '<span color="lightblue">Eth:</span> ${eth0 down_kb}/${eth0 up_kb}' .. myn.brackr,3)
+end
 awful.widget.layout.margins[netwidget] = { left = 6, right = 6}
 
 
