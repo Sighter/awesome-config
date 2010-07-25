@@ -27,6 +27,9 @@ mytextclock:buttons({
     end),
 })
 
+calendar2.addCalendarToWidget(mytextclock)
+
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
@@ -166,6 +169,7 @@ awful.widget.layout.margins[fswidget_home_text] = { left = 6, right = 6}
 cpuwidget =	widget({type = 'textbox',name = 'cpuwidget'})
 vicious.register(cpuwidget, vicious.widgets.cpu, myn.brackl .. '<span color="lightblue">CPU:</span> $1% $2%' .. myn.brackr , 2)
 awful.widget.layout.margins[cpuwidget] = { left = 6, right = 6}
+popular.addtowidget(cpuwidget, popular.cpufreqinfo.popup)
 
 -- Battery
 batwidget =	widget({type = 'textbox',name = 'batwidget'})
@@ -244,6 +248,7 @@ sightbox[1].widgets = {
 			pacmimage,
 			pacmwidget,
 			netwidget,
+			pmlauncher,
 			layout = awful.widget.layout.horizontal.rightleft,
 		},
 		layout = awful.widget.layout.horizontal.leftright,

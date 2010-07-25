@@ -1,0 +1,62 @@
+
+Autostart module for the awesome window manager
+===============================================
+
+Name: autost
+Author: Sighter
+
+
+1. Installation
+---------------
+
+Unpack the tar file to your awesome config-dir.
+e.g. $HOME/.config/awesome
+
+
+2. Invocation
+--------------
+
+First load the module at the head of your rc.lua with
+the command:
+
+	require("autost")
+
+Then you there are some possibilities for configuration
+
+	autost.set.logging = true
+	autost.set.logprefix = "\t--> autost :: "
+
+The first option toggles logging to the standard-error
+output. The second Option defines a string, which is appended 
+at the beginning of every log message.
+
+
+The third you have to do is to define a table with your automaticly
+started programs. E.g.:
+
+	autost.entries =
+	{
+		{ cmd = "screen -D -R -S irssi irssi", term = "urxvtc -n urx-irssi -e" },
+		{ cmd = "mutt", term = "urxvtc -n urx-mail -e" },
+		{ cmd = "slrn", term = "urxvtc -n urx-mail -e" },
+		{ cmd = "firefox" },
+	}
+
+I think you get the synopsis. "cmd" have to be assigned with a command call.
+If the spwaned program runs in a terminal, you have to provide the term key.
+It holds the command of your favourite terminal emulator for executing a 
+program directly.
+This is necessary because only the strings in "cmd" are found in the "ps -Af"
+output, in which the autostart function is looking for running applications.
+Consequently , if you exit an app which is in your entries table and you
+restart your awesome, then the program is spawned again. I will make this
+behavior more controlable in the future.
+
+At least you have to launch the main function at the and of your awesome 
+configuration file with the call
+
+	autost.execute()
+
+
+
+

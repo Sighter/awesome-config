@@ -39,17 +39,24 @@ layouts =
 -- autostart table
 autos =
 {
-    "urxvtc -n urx-sound -pe tabbed -e ncmpcpp &" ,
+	--"urxvtc -n urx-sound -pe tabbed -e ncmpcpp &" ,
     "urxvtc -n urx-irssi -e screen -D -R -S irssi irssi &",
-    "urxvtc -n urx-var1 &",
-    "urxvtc -n urx-var1 &",
-    "urxvtc -n urx-var2 &",
-    "urxvtc -n urx-var2 &",
-    "urxvtc -n urx-news -e newsbeuter &",
     "urxvtc -n urx-mail -e mutt &",
     "urxvtc -n urx-mail -e slrn &",
-    "urxvtc -n urx-log -e screen -c /home/sighter/.screenrc-log &",
+    "urxvtc -n urx-log -e screen -D -R -c /home/sighter/.screenrc-log -S logging &",
     "firefox &",
+}
+
+autost.set.logging = true
+autost.set.logprefix = "\t--> autost :: "
+
+autost.entries =
+{
+	{ cmd = "screen -D -R -S irssi irssi", term = "urxvtc -n urx-irssi -e" },
+	{ cmd = "mutt", term = "urxvtc -n urx-mail -e" },
+	{ cmd = "slrn", term = "urxvtc -n urx-mail -e" },
+	{ cmd = "screen -D -R -c /home/sighter/.screenrc-log -S logging", term = "urxvtc -n urx-log -e" },
+	{ cmd = "firefox" },
 }
 
 

@@ -7,6 +7,9 @@ require("naughty")
 -- require("wicked")
 require("vicious")
 require("sightness")
+require("autost")
+require("calendar2")
+require("popular")
 
 io.stderr:write('\n\n\nEntering awconf.head.lua at '.. os.date() .. os.time() ..'\n\n')
 
@@ -22,7 +25,6 @@ dofile( config_path .. 'awconf.apprules.lua')			-- rules to handle apps
 dofile( config_path .. 'awconf.signals.lua')			-- add signals to the clients
 
 
--- execute the autostart
--- autostart(autos)
+autost.execute()
 
 -- vim:ft=lua

@@ -39,7 +39,8 @@ client.add_signal("manage", function (c, startup)
 			awful.placement.centered(c) end
 
 	-- apply the placement-rules
-	sightness.placethem.rules.apply(c)
+	-- sightness.placethem.rules.apply(c)
+
 
     -- Honor size hints: if you want to drop the gaps between windows, set this to false.
     --c.size_hints_honor = false

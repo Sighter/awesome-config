@@ -1,0 +1,259 @@
+
+
+
+Entering awconf.head.lua at Sun Jul 25 11:50:03 20101280051403
+
+	--> Processing awconf.definitions.lua ...
+	--> Processing awconf.functions.lua ...
+	--> Processing awconf.tags.lua ...
+	--> Processing awconf.menus.lua ...
+	--> Processing awconf.widgets.lua ...
+amixer: Unable to find simple control 'ADC',0
+
+	--> Processing awconf.bindings.lua ...
+	--> Processing awconf.apprules.lua ...
+	--> Processing awconf.signals.lua ...
+	--> autost :: screen -D -R -S irssi irssi restarted
+	--> autost :: mutt restarted
+	--> autost :: slrn restarted
+	--> autost :: screen -D -R -c /home/sighter/.screenrc-log -S logging restarted
+	--> autost :: firefox restarted
+W: awesome: luaA_panic:661: unprotected error in call to Lua API (invalid object)
+W: awesome: luaA_panic:664: dumping backtrace
+awesome(backtrace_get+0x26) [0x434096]
+awesome() [0x423501]
+/usr/lib/liblua.so(+0xc806) [0x7f9be8d0a806]
+/usr/lib/liblua.so(lua_error+0x9) [0x7f9be8d05db9]
+/usr/lib/liblua.so(luaL_error+0xc2) [0x7f9be8d16d82]
+awesome(luaA_checkudata+0x6d) [0x43608d]
+awesome() [0x40f078]
+/usr/lib/liblua.so(+0xc9a1) [0x7f9be8d0a9a1]
+/usr/lib/liblua.so(+0xce24) [0x7f9be8d0ae24]
+/usr/lib/liblua.so(+0xe5c6) [0x7f9be8d0c5c6]
+/usr/lib/liblua.so(+0xe6c4) [0x7f9be8d0c6c4]
+/usr/lib/liblua.so(+0xebb8) [0x7f9be8d0cbb8]
+/usr/lib/liblua.so(lua_createtable+0x2b) [0x7f9be8d0654b]
+awesome(client_manage+0x94) [0x412f04]
+awesome() [0x418bc4]
+awesome() [0x40d76d]
+/usr/lib/libev.so.3(ev_invoke_pending+0x61) [0x7f9be8f2bfe1]
+/usr/lib/libev.so.3(ev_loop+0x672) [0x7f9be8f31602]
+awesome(main+0x8b6) [0x40e5e6]
+/lib/libc.so.6(__libc_start_main+0xfd) [0x7f9be8564c4d]
+awesome() [0x40d599]
+W: awesome: luaA_panic:665: restarting awesome
+
+
+
+Entering awconf.head.lua at Sun Jul 25 11:50:19 20101280051419
+
+	--> Processing awconf.definitions.lua ...
+	--> Processing awconf.functions.lua ...
+	--> Processing awconf.tags.lua ...
+	--> Processing awconf.menus.lua ...
+	--> Processing awconf.widgets.lua ...
+amixer: Unable to find simple control 'ADC',0
+
+	--> Processing awconf.bindings.lua ...
+	--> Processing awconf.apprules.lua ...
+	--> Processing awconf.signals.lua ...
+	--> autost :: screen -D -R -S irssi irssi restarted
+	--> autost :: mutt is running
+	--> autost :: slrn restarted
+	--> autost :: screen -D -R -c /home/sighter/.screenrc-log -S logging is running
+	--> autost :: firefox is running
+W: awesome: luaA_dofunction:108: error while running function
+stack traceback:
+	[C]: in function '(for generator)'
+	...re/awesome/lib/awful/widget/layout/linear_common.lua:52: in function 'fixed'
+	...share/awesome/lib/awful/widget/layout/horizontal.lua:44: in function 'layout'
+	...re/awesome/lib/awful/widget/layout/linear_common.lua:75: in function <...re/awesome/lib/awful/widget/layout/linear_common.lua:34>
+	(tail call): ?
+error: ...re/awesome/lib/awful/widget/layout/linear_common.lua:52: invalid object
+  (child won, so we're deferring)
+ng)
+  (processing deferred in-call)
+  (child won, so we're not deferring)
+  (child won, so we're deferring)
+  (processing deferred in-call)
+sh: line 3: echo: write error: Broken pipe
+sh: line 3: echo: write error: Broken pipe
+  (child won, so we're deferring)
+ng)
+  (processing deferred in-call)
+  (child won, so we're deferring)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+sh: line 3: echo: write error: Broken pipe
+
+** (evince:12961): WARNING **: Failed to create dbus proxy for org.gnome.SettingsDaemon: Could not get owner of name 'org.gnome.SettingsDaemon': no such name
+
+** (evince:12961): WARNING **: Setting attribute metadata::evince::sidebar_visibility not supported
+
+(pcmanfm:13219): Gdk-CRITICAL **: gdk_window_get_events: assertion `GDK_IS_WINDOW (window)' failed
+
+(pcmanfm:13219): GLib-GObject-CRITICAL **: g_object_ref: assertion `G_IS_OBJECT (object)' failed
+
+(pcmanfm:13219): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+
+** (evince:13366): WARNING **: Failed to create dbus proxy for org.gnome.SettingsDaemon: Could not get owner of name 'org.gnome.SettingsDaemon': no such name
+
+** (evince:13366): WARNING **: Setting attribute metadata::evince::sidebar_visibility not supported
+kdeinit4: preparing to launch /usr/lib/libkdeinit4_klauncher.so
+Connecting to deprecated signal QDBusConnectionInterface::serviceOwnerChanged(QString,QString,QString)
+kdeinit4: preparing to launch /usr/lib/libkdeinit4_kded4.so
+kdeinit4: preparing to launch /usr/lib/libkdeinit4_kbuildsycoca4.so
+kbuildsycoca4 running...
+kdeinit4: preparing to launch /usr/lib/libkdeinit4_kconf_update.so
+Connecting to deprecated signal QDBusConnectionInterface::serviceOwnerChanged(QString,QString,QString)
+kdeinit4: preparing to launch /usr/bin/knotify4
+knotify(13565) NotifyByPopup::slotServiceOwnerChanged: "org.freedesktop.Notifications" "" "_"
+Connecting to deprecated signal QDBusConnectionInterface::serviceOwnerChanged(QString,QString,QString)
+knotify(13565) KNotify::event: 1  ref= 0
+kdeinit4: preparing to launch /usr/lib/libkdeinit4_kconf_update.so
+krusader(13539) UserAction::UserAction: Initialisising useractions...
+krusader(13539) UserAction::UserAction: 10  useractions read.
+kdeinit4: preparing to launch /usr/lib/kde4/kio_file.so
+krusader(13539)/kdecore (services) KMimeTypeFactory::parseMagic: Now parsing  "/usr/share/mime/magic"
+kdeinit4: preparing to launch /usr/lib/kde4/kio_thumbnail.so
+
+** (gnome-commander:13769): WARNING **: Failed to open file '/home/sighter/.gnome-commander/gnome-commander.xml': No such file or directory
+
+(gnome-commander:13769): GLib-GObject-WARNING **: invalid cast from `GtkMenuItem' to `GtkCheckMenuItem'
+
+(gnome-commander:13769): Gtk-CRITICAL **: gtk_check_menu_item_set_active: assertion `GTK_IS_CHECK_MENU_ITEM (check_menu_item)' failed
+
+(gnome-commander:13769): GLib-GObject-WARNING **: invalid cast from `GtkImageMenuItem' to `GtkCheckMenuItem'
+
+(gnome-commander:13769): Gtk-CRITICAL **: gtk_check_menu_item_set_active: assertion `GTK_IS_CHECK_MENU_ITEM (check_menu_item)' failed
+
+(gnome-commander:13769): Gtk-CRITICAL **: gtk_check_menu_item_set_active: assertion `GTK_IS_CHECK_MENU_ITEM (check_menu_item)' failed
+kdeinit4: preparing to launch /usr/lib/libkdeinit4_kbuildsycoca4.so
+<unknown program name>(13547)/ KStartupInfo::createNewStartupId: creating:  "bunker;1280079807;103789;13547_TIME0" : "unnamed app"
+kbuildsycoca4 running...
+
+** (evince:14594): WARNING **: Failed to create dbus proxy for org.gnome.SettingsDaemon: Could not get owner of name 'org.gnome.SettingsDaemon': no such name
+
+** (evince:14594): WARNING **: Setting attribute metadata::evince::sidebar_visibility not supported
+
+** (evince:14643): WARNING **: Failed to create dbus proxy for org.gnome.SettingsDaemon: Could not get owner of name 'org.gnome.SettingsDaemon': no such name
+
+** (evince:14643): WARNING **: Setting attribute metadata::evince::sidebar_visibility not supported
+
+** (evince:14710): WARNING **: Failed to create dbus proxy for org.gnome.SettingsDaemon: Could not get owner of name 'org.gnome.SettingsDaemon': no such name
+
+** (evince:14710): WARNING **: Setting attribute metadata::evince::sidebar_visibility not supported
+
+(firefox:4898): Gdk-CRITICAL **: gdk_window_get_events: assertion `GDK_IS_WINDOW (window)' failed
+
+(firefox:4898): GLib-GObject-CRITICAL **: g_object_ref: assertion `G_IS_OBJECT (object)' failed
+
+(firefox:4898): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+
+(firefox:4898): Gdk-CRITICAL **: gdk_window_get_events: assertion `GDK_IS_WINDOW (window)' failed
+
+(firefox:4898): GLib-GObject-CRITICAL **: g_object_ref: assertion `G_IS_OBJECT (object)' failed
+
+(firefox:4898): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+  (child won, so we're deferring)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+
+(firefox:4898): Gdk-CRITICAL **: gdk_window_get_events: assertion `GDK_IS_WINDOW (window)' failed
+
+(firefox:4898): GLib-GObject-CRITICAL **: g_object_ref: assertion `G_IS_OBJECT (object)' failed
+
+(firefox:4898): GLib-GObject-CRITICAL **: g_object_unref: assertion `G_IS_OBJECT (object)' failed
+
+------------------------  Thread: 10  -----------------------
+10 7/25/10 9:17:28 PM - INFO [jd.Main(main)] -> Start JDownloader
+10 7/25/10 9:17:28 PM - FINEST [jd.utils.JDUtilities(getJDClassLoader)] -> Create Classloader: for: /home/sighter/.jd
+10 7/25/10 9:17:28 PM - FINEST [jd.JDClassLoader(<init>)] -> rootDir:/home/sighter/.jd
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDLangFileEditor.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDExternInterface.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDWebinterface.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDUnrar.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDTray.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDFolderWatch.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDShutdown.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDInfoFileWriter.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDRemoteControl.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/schedule.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDGrowl.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDPackageCustomizer.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDChat.jar
+10 7/25/10 9:17:28 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDHJMerge.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/plugins/JDHTTPLiveHeaderScripter.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Jar file loaded: /home/sighter/.jd/JDownloader.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/synthetica.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaMauveMetallic.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaBlueSteel.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaBatik.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaSkyMetallic.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaWhiteVision.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/substance.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaBlueIce.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaSimple2D.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaGreenDream.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaBlackEye.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaBlackMoon.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaBlueMoon.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaSilverMoon.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/substance-swingx.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaBlackStar.jar
+10 7/25/10 9:17:29 PM - FINER [jd.JDClassLoader(<init>)] -> Look and Feel JAR loaded: /home/sighter/.jd/libs/laf/syntheticaOrangeMetallic.jar
+10 7/25/10 9:17:30 PM - FINER [jd.config.DatabaseConnector(<init>)] -> Loading database
+10 7/25/10 9:17:30 PM - FINER [jd.config.DatabaseConnector(checkDatabaseHeader)] -> Checking database
+10 7/25/10 9:17:31 PM - INFO [jd.Main(main)] -> init Splash
+
+------------------------  Thread: 11  -----------------------
+11 7/25/10 9:17:32 PM - INFO [jd.gui.swing.laf.LookAndFeelController(setUIManager)] -> Use Look & Feel: de.javasoft.plaf.synthetica.SyntheticaSimple2DLookAndFeel
+Exception in thread "Thread-6" java.lang.IllegalStateException
+	at org.mozilla.javascript.ContextFactory.initGlobal(ContextFactory.java:207)
+	at jd.http.Browser$2.run(Browser.java:1320)
+11 7/25/10 9:17:36 PM - INFO [jd.Main(go)] -> Sun Jul 25 21:17:36 CEST 2010
+11 7/25/10 9:17:36 PM - INFO [jd.Main(go)] -> init Configuration
+Removed Consolehandler. Start with -debug to see console output
+java.lang.IllegalStateException
+	at org.mozilla.javascript.ContextFactory.initGlobal(ContextFactory.java:207)
+	at jd.dynamics.Cinj.execute(Cinj.java:18)
+	at jd.Main.loadDynamics(Unknown Source)
+	at jd.Main.go(Unknown Source)
+	at jd.Main.access$0(Unknown Source)
+	at jd.Main$3.run(Unknown Source)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:209)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:597)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+/home/sighter/.jd/config/WEBUPDATE.cfg (No such file or directory)
+sh: line 3: echo: write error: Broken pipe
+
+** (evince:18096): WARNING **: Failed to create dbus proxy for org.gnome.SettingsDaemon: Could not get owner of name 'org.gnome.SettingsDaemon': no such name
+
+** (evince:18096): WARNING **: Setting attribute metadata::evince::sidebar_visibility not supported
+  (parent won, so we're not deferring)
+  (parent won, so we're deferring)
+  (processing deferred in-call)
+  (child won, so we're deferring)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+  (child won, so we're deferring)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+  (child won, so we're not deferri  (processing deferred in-call)
+  (child won, so we're deferring)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
+  (child won, so we're deferring)
+  (child won, so we're not deferring)
+  (processing deferred in-call)
