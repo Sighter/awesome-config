@@ -95,6 +95,19 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
 	
+	-- Dictionary Prompt
+	awful.key({ modkey}, "d",
+		function ()
+			info = true
+			local f = io.popen("dict -d wn $(xsel) 2>&1")
+			local fr = ""
+			for line in f:lines() do
+				fr = fr .. line .. '\n'
+			end
+			f:close()
+			naughty.notify({ text = '<span font_desc="Sans 7">'..fr..'</span>', timeout = 0, width = 400 })
+	end),
+	
 	-- get some Infos about tags
     awful.key({ modkey }, "F1",
 		function ()
