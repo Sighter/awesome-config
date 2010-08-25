@@ -248,6 +248,7 @@ sightbox[1].widgets = {
 			pacmimage,
 			pacmwidget,
 			netwidget,
+			volumewidget,
 			pmlauncher,
 			layout = awful.widget.layout.horizontal.rightleft,
 		},
