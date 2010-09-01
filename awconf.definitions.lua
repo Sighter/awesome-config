@@ -44,7 +44,7 @@ autos =
     "urxvtc -n urx-mail -e mutt &",
     "urxvtc -n urx-mail -e slrn &",
     "urxvtc -n urx-log -e screen -D -R -c /home/sighter/.screenrc-log -S logging &",
-    "firefox &",
+    --"firefox &",
 }
 
 autost.set.logging = true
