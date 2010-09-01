@@ -213,8 +213,6 @@ awful.widget.layout.margins[netwidget] = { left = 6, right = 6}
 pacmwidget = widget({type = 'textbox',name = 'pacmwidget'})
 vicious.register(pacmwidget, vicious.widgets.pkg, "$1" , 40, "Arch") 
 awful.widget.layout.margins[pacmwidget] = { right = 6}
-pacmimage = widget({ type = 'imagebox' , name = 'pacmimage'})
-pacmimage.image = image("/home/sighter/.config/awesome/icons/pacman.png")
 
 
 -- Mpd Playing song
@@ -227,9 +225,6 @@ awful.widget.layout.margins[mpdwidget] = { left = 3, right = 6}
 volumewidget = widget({ type = 'textbox', name = 'volumewidget' })
 volumewidget.text = vol_get()
 awful.widget.layout.margins[volumewidget] = { right = 6}
-volimage = widget({ type = 'imagebox' , name = 'volimage'})
-volimage.image = image("/home/sighter/.config/awesome/icons/vol.png")
-awful.widget.layout.margins[volimage] = { left = 6}
 
 
 
@@ -245,7 +240,6 @@ sightbox[1].widgets = {
 		},
 		{
 			batwidget,
-			pacmimage,
 			pacmwidget,
 			netwidget,
 			volumewidget,
