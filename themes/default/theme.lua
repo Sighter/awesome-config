@@ -74,7 +74,7 @@ theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/defau
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
 -- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "awsetbg -f /home/sighter/.config/awesome/themes/default/back.png" }
+--theme.wallpaper_cmd = { "awsetbg -f /home/sighter/.config/awesome/themes/default/back.png" }
 --theme.wallpaper_cmd = { "feh --bg-center /media/win3/pics/wallpaper/greentree.jpg" }
 
 -- You can use your own layout icons like this:
