@@ -44,7 +44,6 @@ autos =
     "urxvtc -n urx-mail -e mutt &",
     "urxvtc -n urx-mail -e slrn &",
     "urxvtc -n urx-log -e screen -D -R -c /home/sighter/.screenrc-log -S logging &",
-    --"firefox &",
 }
 
 autost.set.logging = true
@@ -56,7 +55,6 @@ autost.entries =
 	{ cmd = "mutt", term = "urxvtc -n urx-mail -e" },
 	{ cmd = "slrn", term = "urxvtc -n urx-mail -e" },
 	{ cmd = "screen -D -R -c /home/sighter/.screenrc-log -S logging", term = "urxvtc -n urx-log -e" },
-	{ cmd = "firefox" },
 }
 
 
