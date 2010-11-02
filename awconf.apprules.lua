@@ -45,6 +45,8 @@ awful.rules.rules = {
     { rule = { instance = "abiword" },	properties = { tag = tags[1][7] } },
     { rule = { instance = "evince" },	properties = { tag = tags[1][7] } },
     { rule = { instance = "Gnumeric" },	properties = { tag = tags[1][7] } },
+
+    { rule = { icon_name = "Computer Graphik I: Rasterisierung" }, 	properties = { floating = true } },
 }
 
 --[[sightness.placethem.rules.rules = {
