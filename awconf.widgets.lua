@@ -10,7 +10,7 @@ io.stderr:write('\t--> Processing awconf.widgets.lua ...\n')
 
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock()
 
 -- add the calendar-functions
 mytextclock.mouse_enter = function()
@@ -30,8 +30,6 @@ mytextclock:buttons({
 calendar2.addCalendarToWidget(mytextclock)
 
 
--- Create a systray
-mysystray = widget({ type = "systray" })
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -92,49 +90,28 @@ for s = 1, screen.count() do
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
 
-    -- Create a table with widgets that go to the right
-    right_aligned = {
-        layout = awful.widget.layout.horizontal.rightleft
-    }
-    if s == 1 then table.insert(right_aligned, mysystray) end
-    table.insert(right_aligned, mytextclock)
-    table.insert(right_aligned, mylayoutbox[s])
+    -- Widgets that are aligned to the left
+    local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(mylauncher)
+    left_layout:add(mytaglist[s])
+    left_layout:add(mypromptbox[s])
 
-    -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {
-        mylauncher,
-        mytaglist[s],
-        mypromptbox[s],
-        right_aligned,
-        mytasklist[s],
-        layout = awful.widget.layout.horizontal.leftright,
-        height = mywibox[s].height
-    }
+    -- Widgets that are aligned to the right
+    local right_layout = wibox.layout.fixed.horizontal()
+    if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(mytextclock)
+    right_layout:add(mylayoutbox[s])
+
+    -- Now bring it all together (with the tasklist in the middle)
+    local layout = wibox.layout.align.horizontal()
+    layout:set_left(left_layout)
+    layout:set_middle(mytasklist[s])
+    layout:set_right(right_layout)
+
+
+    mywibox[s]:set_widget(layout)
 end
 
--- clone the tasklist
-
---mytasklist_bak = mytasklist[1]
-
--- create a cloned wibox
---[[
-mywibox[3] = wibox({ position = "top", fg = beautiful.fg_normal, bg = beautiful.bg_normal })
-
-mywibox[3].widgets = { mylauncher,
-                       mytaglist[1],
-                       mytasklist[1],
-                       mypromptbox[1],
-                       mytextbox,
-                       mylayoutbox[1],
-                       1 == 1 and mysystray or nil }
---]]
-
-
--- Create the second Wibox on Screen ONE 
--- #####################################
-
--- create the sightbox-table
----[[
 sightbox = {}
 
 
@@ -147,89 +124,112 @@ myn.space  = '   '
 
 -- Filesystem - usage - widgets
 -- root
-fswidget_root_text = widget({ type = 'textbox' ,align = "left" ,name = "feswidget_root_text"   })
+fswidget_root_text = wibox.widget.textbox({ name = "feswidget_root_text"   })
 vicious.register(fswidget_root_text, vicious.widgets.fs, 
 myn.brackl .. '<span color="lightblue">Root:</span> ${/ used_gb} | <span color="white">${/ size_gb}</span>' .. myn.brackr , 120)
-awful.widget.layout.margins[fswidget_root_text] = { left = 6, right = 6}
+--awful.widget.layout.margins[fswidget_root_text] = { left = 6, right = 6}
 
 -- var
-fswidget_var_text = widget({ type = 'textbox' ,align = "left" ,name = "feswidget_var_text"   })
+fswidget_var_text = wibox.widget.textbox({ name = "feswidget_var_text"   })
 vicious.register(fswidget_var_text, vicious.widgets.fs, 
 myn.brackl .. '<span color="lightblue">Var:</span> ${/var used_gb} | <span color="white">${/var size_gb}</span>' .. myn.brackr , 120)
-awful.widget.layout.margins[fswidget_var_text] = { left = 6, right = 6}
+--awful.widget.layout.margins[fswidget_var_text] = { left = 6, right = 6}
 
 -- home
-fswidget_home_text = widget({ type = 'textbox' ,align = "left" ,name = "feswidget_home_text"   })
+fswidget_home_text = wibox.widget.textbox({ name = "feswidget_home_text"   })
 vicious.register(fswidget_home_text, vicious.widgets.fs, 
 myn.brackl .. '<span color="lightblue">Home:</span> ${/home used_gb} | <span color="white">${/home size_gb}</span>' .. myn.brackr , 120)
-awful.widget.layout.margins[fswidget_home_text] = { left = 6, right = 6}
+--awful.widget.layout.margins[fswidget_home_text] = { left = 6, right = 6}
 
 
 -- CPU Useage
-cpuwidget =	widget({type = 'textbox',name = 'cpuwidget'})
+cpuwidget =	wibox.widget.textbox({ name = 'cpuwidget'})
 vicious.register(cpuwidget, vicious.widgets.cpu, myn.brackl .. '<span color="lightblue">CPU:</span> $1% $2%' .. myn.brackr , 2)
-awful.widget.layout.margins[cpuwidget] = { left = 6, right = 6}
+--awful.widget.layout.margins[cpuwidget] = { left = 6, right = 6}
 popular.addtowidget(cpuwidget, popular.cpufreqinfo.popup)
 
 -- Battery
-batwidget =	widget({type = 'textbox',name = 'batwidget'})
+batwidget =	wibox.widget.textbox({ name = 'batwidget'})
 vicious.register(batwidget, vicious.widgets.bat, myn.brackl .. '<span color="lightblue">Bat:</span> $2% $1 ' .. myn.brackr , 2, "BAT0")
-awful.widget.layout.margins[batwidget] = { left = 6, right = 6}
+--awful.widget.layout.margins[batwidget] = { left = 6, right = 6}
 
 --[[ Thermal monitoring
 -- CPU 1
-cputherm1 =	widget({type = 'textbox',name = 'cputherm1'})
+cputherm1 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm1'})
 vicious.register(cputherm1, vicious.widgets.thermal , myn.brackl .. '<span color="lightblue">CPU Therm:</span> $1°', 2, {"coretemp.0","core"})
-awful.widget.layout.margins[cputherm1] = { left = 6}
+--awful.widget.layout.margins[cputherm1] = { left = 6}
 -- CPU 2
-cputherm2 =	widget({type = 'textbox',name = 'cputherm2'})
+cputherm2 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm2'})
 vicious.register(cputherm2, vicious.widgets.thermal ,' $1°', 2, {"coretemp.1","core"})
 -- CPU 3
-cputherm3 =	widget({type = 'textbox',name = 'cputherm3'})
+cputherm3 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm3'})
 vicious.register(cputherm3, vicious.widgets.thermal ,' $1°', 2, {"coretemp.2","core"})
 -- CPU 4
-cputherm4 =	widget({type = 'textbox',name = 'cputherm4'})
+cputherm4 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm4'})
 vicious.register(cputherm4, vicious.widgets.thermal , ' $1°' .. myn.brackr , 2, {"coretemp.3","core"})
-awful.widget.layout.margins[cputherm4] = { right = 6}
+--awful.widget.layout.margins[cputherm4] = { right = 6}
 
 -- Thermal monitoring for hdds
-hddtemp1 =	widget({type = 'textbox',name = 'hddtemp1'})
+hddtemp1 =	wibox.widget.textbox({type = 'textbox',name = 'hddtemp1'})
 vicious.register(hddtemp1, vicious.widgets.hddtemp, myn.brackl .. '<span color="lightblue">Hddtemp:</span> ${/dev/sda}° | ${/dev/sdb}° ' .. myn.brackr , 2)
-awful.widget.layout.margins[hddtemp1] = { left = 6, right = 6}
+--awful.widget.layout.margins[hddtemp1] = { left = 6, right = 6}
 --]]
 
 -- Net Stats
-netwidget =	widget({type = 'textbox',name = 'netwidget'})
+netwidget =	wibox.widget.textbox({name = 'netwidget'})
 netstat = io.popen("ifconfig"):read("*a")
 if string.find(netstat,"wlan0") then
 		vicious.register(netwidget, vicious.widgets.net, myn.brackl .. '<span color="lightblue">Wlan:</span> ${eth0 down_kb}/${eth0 up_kb}' .. myn.brackr,3)
 else
 		vicious.register(netwidget, vicious.widgets.net, myn.brackl .. '<span color="lightblue">Eth:</span> ${eth0 down_kb}/${eth0 up_kb}' .. myn.brackr,3)
 end
-awful.widget.layout.margins[netwidget] = { left = 6, right = 6}
+--awful.widget.layout.margins[netwidget] = { left = 6, right = 6}
 
 
 -- Pacman Updates
-pacmwidget = widget({type = 'textbox',name = 'pacmwidget'})
+pacmwidget = wibox.widget.textbox({name = 'pacmwidget'})
 vicious.register(pacmwidget, vicious.widgets.pkg, "$1" , 40, "Arch") 
-awful.widget.layout.margins[pacmwidget] = { right = 6}
+--awful.widget.layout.margins[pacmwidget] = { right = 6}
 
 
 -- Mpd Playing song
-mpdwidget = widget({ type = 'textbox', name = 'mpdwidget' })
+mpdwidget = wibox.widget.textbox({name = 'mpdwidget' })
 vicious.register(mpdwidget, vicious.widgets.mpd, '   ' ..  myn.brackl .. '<span color="lightblue">MPD:</span> ${Artist} - ${Title}' .. myn.brackr, 10)
-awful.widget.layout.margins[mpdwidget] = { left = 3, right = 6}
+--awful.widget.layout.margins[mpdwidget] = { left = 3, right = 6}
 
 
 -- Volume Widget
-volumewidget = widget({ type = 'textbox', name = 'volumewidget' })
+volumewidget = wibox.widget.textbox({name = 'volumewidget' })
 volumewidget.text = vol_get()
-awful.widget.layout.margins[volumewidget] = { right = 6}
+--awful.widget.layout.margins[volumewidget] = { right = 6}
+
+-- Create wibox
+sightbox[1] = awful.wibox({ position = "bottom", screen = 1})
+
+-- Widgets that are aligned to the left
+local left_layout = wibox.layout.fixed.horizontal()
+left_layout:add(cpuwidget)
+left_layout:add(fswidget_root_text)
+left_layout:add(fswidget_var_text)
+left_layout:add(fswidget_home_text)
+
+-- Widgets that are aligned to the right
+local right_layout = wibox.layout.fixed.horizontal()
+right_layout:add(batwidget)
+right_layout:add(pacmwidget)
+right_layout:add(netwidget)
+right_layout:add(volumewidget)
+right_layout:add(pmlauncher)
 
 
+-- Now bring it all together
+local layout = wibox.layout.align.horizontal()
+layout:set_left(left_layout)
+layout:set_right(right_layout)
 
--- fill the wibox
-sightbox[1] = awful.wibox({ position = "bottom", fg = beautiful.fg_normal, bg = beautiful.bg_normal, screen = 1})
+sightbox[1]:set_widget(layout)
+
+--[[ fill the wibox
 sightbox[1].widgets = { 
 		{
 			cpuwidget,
@@ -249,10 +249,9 @@ sightbox[1].widgets = {
 		layout = awful.widget.layout.horizontal.leftright,
         height = sightbox[1].height
 }
-				
+--]]
 
 
--- place it on screen one
 sightbox[1].screen = 1
 
 

@@ -19,7 +19,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 modkey = "Mod4"
 
--- layout table
+-- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
     awful.layout.suit.tile,
@@ -51,10 +51,11 @@ autost.set.logprefix = "\t--> autost :: "
 
 autost.entries =
 {
-	{ cmd = "screen -D -R -S irssi irssi", term = "urxvtc -n urx-irssi -e" },
-	{ cmd = "mutt", term = "urxvtc -n urx-mail -e" },
-	{ cmd = "slrn", term = "urxvtc -n urx-mail -e" },
-	{ cmd = "screen -D -R -c /home/sighter/.screenrc-log -S logging", term = "urxvtc -n urx-log -e" },
+	{ cmd = "screen -D -R -S irssi irssi", 								term = "urxvtc -n urx-irssi -e" },
+	{ cmd = "mutt",														term = "urxvtc -n urx-mail -e" },
+	{ cmd = "slrn",														term = "urxvtc -n urx-mail -e" },
+	{ cmd = "mc /home/sighter/files/documents/", 						term = "urxvtc -n urx-docs -e" },
+	{ cmd = "screen -D -R -c /home/sighter/.screenrc-log -S logging",	term = "urxvtc -n urx-log -e" },
 }
 
 

@@ -2,7 +2,11 @@
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
+-- Widget and layout library
+require("wibox")
+-- Theme handling library
 require("beautiful")
+-- Notification library
 require("naughty")
 -- require("wicked")
 require("vicious")

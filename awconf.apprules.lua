@@ -40,6 +40,7 @@ awful.rules.rules = {
     { rule = { icon_name = "urx-news" },	properties = { tag = tags[1][2] } },
     { rule = { icon_name = "urxvt-short" },	properties = { floating = true } },
 	{ rule = { icon_name = "urx-log" }, 	properties = { tag = tags[1][10], } },
+	{ rule = { icon_name = "urx-docs" }, 	properties = { tag = tags[1][7], } },
 	
 	-- Documents
     { rule = { instance = "abiword" },	properties = { tag = tags[1][7] } },

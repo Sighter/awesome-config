@@ -34,7 +34,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                       }
                             })
 
-mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 
 
@@ -65,6 +65,6 @@ powermenu = awful.menu({ items = {
 })
 
 
-pmlauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
+pmlauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = powermenu })
 
