@@ -140,16 +140,17 @@ end
 
 -- changevol() {{{
 function vol_change(value)
-		cur = io.popen("amixer get Master,0 | grep dB | cut -d \" \" -f 6"):read("*n")
+		cur = io.popen("amixer get DAC,0 | grep dB | cut -d \" \" -f 4"):read("*n")
 		n = cur + value
-		os.execute("amixer set Master,0 " .. n)
+		os.execute("amixer set DAC,0 " .. n)
+		os.execute("amixer set DAC,1 " .. n)
 		-- set widget text
 		volumewidget.text = n
 
 end
 
 function vol_get()
-		return io.popen("amixer get Master,0 | grep dB | cut -d \" \" -f 6"):read("*n")
+		return io.popen("amixer get DAC,0 | grep dB | cut -d \" \" -f 4"):read("*n")
 end
 
 

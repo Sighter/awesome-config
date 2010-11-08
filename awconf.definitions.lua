@@ -51,13 +51,18 @@ autost.set.logprefix = "\t--> autost :: "
 
 autost.entries =
 {
-	{ cmd = "screen -D -R -S irssi irssi", 								term = "urxvtc -n urx-irssi -e" },
-	{ cmd = "mutt",														term = "urxvtc -n urx-mail -e" },
-	{ cmd = "slrn",														term = "urxvtc -n urx-mail -e" },
-	{ cmd = "mc /home/sighter/files/documents/", 						term = "urxvtc -n urx-docs -e" },
-	{ cmd = "screen -D -R -c /home/sighter/.screenrc-log -S logging",	term = "urxvtc -n urx-log -e" },
+	{ term = "urxvtc -n urx-sound -pe tabbed -e", 	cmd = " ncmpcpp" },
+	{ term = "urxvtc -n urx-irssi -e", 				cmd = " screen -D -R -S irssi irssi" },
+	--{ term = "urxvtc -n urx-var1" },
+	--{ term = "urxvtc -n urx-var1" },
+	--{ term = "urxvtc -n urx-var2" },
+	--{ term = "urxvtc -n urx-var2" },
+	{ term = "urxvtc -n urx-news -e",				cmd = " newsbeuter" },
+	{ term = "urxvtc -n urx-mail -e",				cmd = " mutt" },
+	{ term = "urxvtc -n urx-mail -e",				cmd = " slrn" },
+	{ term = "urxvtc -n urx-log -e",				cmd = " screen -c /home/sighter/.screenrc-log" },
+	{ cmd = "firefox" },
 }
-
 
 -- Define if we want to use titlebar on all applications.
 use_titlebar = false

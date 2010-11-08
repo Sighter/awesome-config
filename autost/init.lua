@@ -7,6 +7,7 @@
 require("awful")
 
 local awful = awful
+local awesome = awesome
 local ipairs = ipairs
 local io = io
 local string = string
@@ -59,4 +60,9 @@ function execute()
 	end
 
 end
+
+--awesome:add_signal("spawn::initiated", function(clienttable)
+--	io.stderr:write("Client Initiated: ")
+
+--end)
 

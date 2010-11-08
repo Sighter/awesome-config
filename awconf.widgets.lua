@@ -5,7 +5,7 @@
 -- Widgets
 -- ********************
 
-io.stderr:write('\t--> Processing awconf.widgets.lua ...\n')
+io.stderr:write('\t--> Processing awconf.widgets.lua. Screens: ' .. screen.count() .. ' ...\n')
 
 
 
@@ -98,7 +98,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
+	--if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -111,6 +111,8 @@ for s = 1, screen.count() do
 
     mywibox[s]:set_widget(layout)
 end
+
+
 
 sightbox = {}
 
@@ -141,39 +143,51 @@ vicious.register(fswidget_home_text, vicious.widgets.fs,
 myn.brackl .. '<span color="lightblue">Home:</span> ${/home used_gb} | <span color="white">${/home size_gb}</span>' .. myn.brackr , 120)
 --awful.widget.layout.margins[fswidget_home_text] = { left = 6, right = 6}
 
+-- win 2 - production
+fswidget_win2_text = wibox.widget.textbox({ name = "feswidget_win2_text"   })
+vicious.register(fswidget_win2_text, vicious.widgets.fs, 
+myn.brackl .. '<span color="lightblue">Win2:</span> ${/media/win2 used_gb} | <span color="white">${/media/win2 size_gb}</span>' .. myn.brackr , 120)
+--awful.widget.layout.margins[fswidget_win2_text] = { left = 6, right = 6}
+
+-- win 3 - files
+fswidget_win3_text = wibox.widget.textbox({ name = "feswidget_win3_text"   })
+vicious.register(fswidget_win3_text, vicious.widgets.fs, 
+myn.brackl .. '<span color="lightblue">Win3:</span> ${/media/win3 used_gb} | <span color="white">${/media/win3 size_gb}</span>' .. myn.brackr , 120)
+--awful.widget.layout.margins[fswidget_win3_text] = { left = 6, right = 6}
+
+-- samsung 1 - files
+fswidget_sam1_text = wibox.widget.textbox({ name = "feswidget_sam1_text"   })
+vicious.register(fswidget_sam1_text, vicious.widgets.fs, 
+myn.brackl .. '<span color="lightblue">Sam1:</span> ${/media/sam1 used_gb} | <span color="white">${/media/sam1 size_gb}</span>' .. myn.brackr , 120)
+--awful.widget.layout.margins[fswidget_sam1_text] = { left = 6, right = 6}
+
+
 
 -- CPU Useage
 cpuwidget =	wibox.widget.textbox({ name = 'cpuwidget'})
-vicious.register(cpuwidget, vicious.widgets.cpu, myn.brackl .. '<span color="lightblue">CPU:</span> $1% $2%' .. myn.brackr , 2)
+vicious.register(cpuwidget, vicious.widgets.cpu, myn.brackl .. '<span color="lightblue">CPU:</span> $1% $2% $3% $4%' .. myn.brackr , 2)
 --awful.widget.layout.margins[cpuwidget] = { left = 6, right = 6}
 popular.addtowidget(cpuwidget, popular.cpufreqinfo.popup)
 
--- Battery
-batwidget =	wibox.widget.textbox({ name = 'batwidget'})
-vicious.register(batwidget, vicious.widgets.bat, myn.brackl .. '<span color="lightblue">Bat:</span> $2% $1 ' .. myn.brackr , 2, "BAT0")
---awful.widget.layout.margins[batwidget] = { left = 6, right = 6}
 
---[[ Thermal monitoring
+
+-- Thermal monitoring
 -- CPU 1
-cputherm1 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm1'})
+cputherm1 =	wibox.widget.textbox({name = 'cputherm1'})
 vicious.register(cputherm1, vicious.widgets.thermal , myn.brackl .. '<span color="lightblue">CPU Therm:</span> $1°', 2, {"coretemp.0","core"})
---awful.widget.layout.margins[cputherm1] = { left = 6}
 -- CPU 2
-cputherm2 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm2'})
+cputherm2 =	wibox.widget.textbox({name = 'cputherm2'})
 vicious.register(cputherm2, vicious.widgets.thermal ,' $1°', 2, {"coretemp.1","core"})
 -- CPU 3
-cputherm3 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm3'})
+cputherm3 =	wibox.widget.textbox({name = 'cputherm3'})
 vicious.register(cputherm3, vicious.widgets.thermal ,' $1°', 2, {"coretemp.2","core"})
 -- CPU 4
-cputherm4 =	wibox.widget.textbox({type = 'textbox',name = 'cputherm4'})
+cputherm4 =	wibox.widget.textbox({name = 'cputherm4'})
 vicious.register(cputherm4, vicious.widgets.thermal , ' $1°' .. myn.brackr , 2, {"coretemp.3","core"})
---awful.widget.layout.margins[cputherm4] = { right = 6}
 
 -- Thermal monitoring for hdds
-hddtemp1 =	wibox.widget.textbox({type = 'textbox',name = 'hddtemp1'})
+hddtemp1 = wibox.widget.textbox({name = 'hddtemp1'})
 vicious.register(hddtemp1, vicious.widgets.hddtemp, myn.brackl .. '<span color="lightblue">Hddtemp:</span> ${/dev/sda}° | ${/dev/sdb}° ' .. myn.brackr , 2)
---awful.widget.layout.margins[hddtemp1] = { left = 6, right = 6}
---]]
 
 -- Net Stats
 netwidget =	wibox.widget.textbox({name = 'netwidget'})
@@ -189,37 +203,50 @@ end
 -- Pacman Updates
 pacmwidget = wibox.widget.textbox({name = 'pacmwidget'})
 vicious.register(pacmwidget, vicious.widgets.pkg, "$1" , 40, "Arch") 
+pacmimage = wibox.widget.imagebox()
+pacmimage.set_image(pacmimage, "/home/sighter/.config/awesome/icons/pacman.png")
 --awful.widget.layout.margins[pacmwidget] = { right = 6}
 
 
 -- Mpd Playing song
 mpdwidget = wibox.widget.textbox({name = 'mpdwidget' })
-vicious.register(mpdwidget, vicious.widgets.mpd, '   ' ..  myn.brackl .. '<span color="lightblue">MPD:</span> ${Artist} - ${Title}' .. myn.brackr, 10)
+vicious.register(mpdwidget, vicious.widgets.mpd, myn.brackl .. '<span color="lightblue">MPD:</span> ${Artist} - ${Title}' .. myn.brackr, 10)
 --awful.widget.layout.margins[mpdwidget] = { left = 3, right = 6}
 
 
 -- Volume Widget
-volumewidget = wibox.widget.textbox({name = 'volumewidget' })
-volumewidget.text = vol_get()
+--volumewidget = wibox.widget.textbox({name = 'volumewidget' })
+--volumewidget.text = vol_get()
+--volimage = wibox.widget.imagebox({name = 'volimage'})
+--volimage.image = "/home/sighter/.config/awesome/icons/vol.png"
 --awful.widget.layout.margins[volumewidget] = { right = 6}
+volumewidget = wibox.widget.textbox({name = 'volumewidget' })
+vicious.register(volumewidget, vicious.widgets.volume, myn.brackl .. '<span color="lightblue">Vol:</span> $1 $2' .. myn.brackr, 1, "DAC,0")
 
 -- Create wibox
 sightbox[1] = awful.wibox({ position = "bottom", screen = 1})
+sightbox[2] = awful.wibox({ position = "bottom", screen = 2})
+
 
 -- Widgets that are aligned to the left
 local left_layout = wibox.layout.fixed.horizontal()
-left_layout:add(cpuwidget)
-left_layout:add(fswidget_root_text)
-left_layout:add(fswidget_var_text)
-left_layout:add(fswidget_home_text)
+left_layout:add( wibox.layout.margin(cpuwidget, 2, 10, 2, 2) )
+left_layout:add( wibox.layout.margin(cputherm1, 0, 0, 2, 2) )
+left_layout:add( wibox.layout.margin(cputherm2, 0, 0, 2, 2) )
+left_layout:add( wibox.layout.margin(cputherm3, 0, 0, 2, 2) )
+left_layout:add( wibox.layout.margin(cputherm4, 0, 10, 2, 2) )
+left_layout:add( wibox.layout.margin(hddtemp1, 0, 0, 2, 2) )
+
 
 -- Widgets that are aligned to the right
 local right_layout = wibox.layout.fixed.horizontal()
-right_layout:add(batwidget)
-right_layout:add(pacmwidget)
-right_layout:add(netwidget)
-right_layout:add(volumewidget)
-right_layout:add(pmlauncher)
+right_layout:add( wibox.layout.margin(fswidget_root_text, 0, 10, 2, 2))
+right_layout:add( wibox.layout.margin(fswidget_var_text, 0, 10, 2, 2) )
+right_layout:add( wibox.layout.margin(fswidget_home_text, 0, 10, 2, 2) )
+--right_layout:add(pacmimage)
+right_layout:add( wibox.layout.margin(pacmimage, 0, 1, 0, 0) )
+right_layout:add( wibox.layout.margin(pacmwidget, 0, 10, 2, 2) )
+right_layout:add( wibox.layout.margin(netwidget, 0, 2, 2, 2) )
 
 
 -- Now bring it all together
@@ -229,7 +256,30 @@ layout:set_right(right_layout)
 
 sightbox[1]:set_widget(layout)
 
---[[ fill the wibox
+
+
+
+-- Widgets that are aligned to the left
+local left_layout_2 = wibox.layout.fixed.horizontal()
+left_layout_2:add( wibox.layout.margin(mpdwidget, 2, 0, 2, 2) )
+
+
+local right_layout_2 = wibox.layout.fixed.horizontal()
+right_layout_2:add( wibox.layout.margin(fswidget_sam1_text, 0, 10, 2, 2) )
+right_layout_2:add( wibox.layout.margin(fswidget_win2_text, 0, 10, 2, 2) )
+right_layout_2:add( wibox.layout.margin(fswidget_win3_text, 0, 10, 2, 2) )
+right_layout_2:add( wibox.layout.margin(volumewidget, 0, 2, 2, 2) )
+--right_layout_2:add(volimage)
+
+
+-- Now bring it all together
+local layout_2 = wibox.layout.align.horizontal()
+layout_2:set_left(left_layout_2)
+layout_2:set_right(right_layout_2)
+
+sightbox[2]:set_widget(layout_2)
+
+--[[
 sightbox[1].widgets = { 
 		{
 			cpuwidget,
@@ -249,9 +299,9 @@ sightbox[1].widgets = {
 		layout = awful.widget.layout.horizontal.leftright,
         height = sightbox[1].height
 }
---]]
 
 
 sightbox[1].screen = 1
+sightbox[2].screen = 2
 
-
+--]]
