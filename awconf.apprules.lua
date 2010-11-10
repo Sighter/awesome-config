@@ -53,13 +53,12 @@ awful.rules.rules = {
     { rule = { instance = "Gnumeric" },	properties = { tag = tags[2][3] } },
 }
 
---[[sightness.placethem.rules.rules = {
+sightness.placethem.rules.rules = {
     { rule = { icon_name = "urx-log" }, 	coordp = { x = 1300 , y = 500 , h = 480 , w = 1240 } },
     { rule = { icon_name = "urx-log-var" },	coordp = { x = 1300 , y = 40 , h = 430 , w = 800 } },
-    { rule = { instance = "Navigator" }, 	coordp = { x = 1310 , y = 50 , h = 924 , w = 1220 } },
-
+--    { rule = { instance = "Navigator" }, 	coordp = { x = 1310 , y = 50 , h = 924 , w = 1220 } },
 }
-]]--
+
 
 		
 
