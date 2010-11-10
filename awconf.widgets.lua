@@ -92,7 +92,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
-    left_layout:add(mylauncher)
+    left_layout:add( wibox.layout.margin(mylauncher, 2, 2, 2, 2) )
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
 
@@ -268,7 +268,8 @@ local right_layout_2 = wibox.layout.fixed.horizontal()
 right_layout_2:add( wibox.layout.margin(fswidget_sam1_text, 0, 10, 2, 2) )
 right_layout_2:add( wibox.layout.margin(fswidget_win2_text, 0, 10, 2, 2) )
 right_layout_2:add( wibox.layout.margin(fswidget_win3_text, 0, 10, 2, 2) )
-right_layout_2:add( wibox.layout.margin(volumewidget, 0, 2, 2, 2) )
+right_layout_2:add( wibox.layout.margin(volumewidget, 0, 10, 2, 2) )
+right_layout_2:add( wibox.layout.margin(pmlauncher, 0, 2, 2, 2) )
 --right_layout_2:add(volimage)
 
 
