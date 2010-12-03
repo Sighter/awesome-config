@@ -20,7 +20,9 @@ io.stderr:write('\n\n\nEntering awconf.head.lua at '.. os.date() .. os.time() ..
 config_path = '/home/sighter/.config/awesome/'
 
 
---awesome.add_signal("exit", function(clienttable) io.stderr:write("Client Initiated: ") end)
+awesome.connect_signal("spawn::completed", function(clienttable)
+	os.execute("touch /tmp/awtest")
+end)
 
 dofile( config_path .. 'awconf.definitions.lua')		-- define all global variables
 dofile( config_path .. 'awconf.functions.lua')			-- define all functions
