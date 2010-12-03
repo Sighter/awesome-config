@@ -25,6 +25,9 @@ awful.rules.rules = {
     
 	-- Firefox
     { rule = { instance = "Navigator" }, properties = { tag = tags[2][1], floating = false} },
+    { rule = { instance = "chromium" }, properties = { tag = tags[2][1], floating = false} },
+    { rule = { instance = "chromium", icon_name = "Chromium Preferences" }, properties = { tag = tags[2][1], floating = true} },
+    { rule = { instance = "chromium", icon_name = "Search Engines" }, properties = { tag = tags[2][1], floating = true} },
 	
 	-- Misc apps
     { rule = { instance = "envy24control" },properties = { tag = tags[2][5] } },
