@@ -190,7 +190,8 @@ end
 pacmwidget = wibox.widget.textbox({name = 'pacmwidget'})
 vicious.register(pacmwidget, vicious.widgets.pkg, "$1" , 40, "Arch") 
 --awful.widget.layout.margins[pacmwidget] = { right = 6}
-
+pacmimage = wibox.widget.imagebox({name = 'pacmimage' })
+pacmimage.set_image(pacmimage, "/home/sighter/.config/awesome/icons/pacman.png")
 
 -- Mpd Playing song
 mpdwidget = wibox.widget.textbox({name = 'mpdwidget' })
@@ -200,7 +201,7 @@ vicious.register(mpdwidget, vicious.widgets.mpd, '   ' ..  myn.brackl .. '<span 
 
 -- Volume Widget
 volumewidget = wibox.widget.textbox({name = 'volumewidget' })
-volumewidget.text = vol_get()
+vicious.register(volumewidget, vicious.widgets.volume, myn.brackl .. '<span color="lightblue">Vol:</span> $1 $2' .. myn.brackr, 1, "Master")
 --awful.widget.layout.margins[volumewidget] = { right = 6}
 
 -- Create wibox
@@ -208,18 +209,19 @@ sightbox[1] = awful.wibox({ position = "bottom", screen = 1})
 
 -- Widgets that are aligned to the left
 local left_layout = wibox.layout.fixed.horizontal()
-left_layout:add(cpuwidget)
-left_layout:add(fswidget_root_text)
-left_layout:add(fswidget_var_text)
-left_layout:add(fswidget_home_text)
+left_layout:add( wibox.layout.margin(cpuwidget, 2, 0, 2, 2) )
+left_layout:add( wibox.layout.margin(fswidget_root_text, 10, 0, 2, 2) )
+left_layout:add( wibox.layout.margin(fswidget_var_text, 10, 0, 2, 2) )
+left_layout:add( wibox.layout.margin(fswidget_home_text, 10, 0, 2, 2) )
 
 -- Widgets that are aligned to the right
 local right_layout = wibox.layout.fixed.horizontal()
-right_layout:add(batwidget)
-right_layout:add(pacmwidget)
-right_layout:add(netwidget)
-right_layout:add(volumewidget)
-right_layout:add(pmlauncher)
+right_layout:add( wibox.layout.margin(batwidget, 0, 10, 2, 2) )
+right_layout:add( wibox.layout.margin(pacmimage, 0, 2, 0, 0) )
+right_layout:add( wibox.layout.margin(pacmwidget, 0, 10, 2, 2) )
+right_layout:add( wibox.layout.margin(netwidget, 0, 10, 2, 2) )
+right_layout:add( wibox.layout.margin(volumewidget, 0, 10, 2, 2) )
+right_layout:add( wibox.layout.margin(pmlauncher, 0, 2, 2, 2) )
 
 
 -- Now bring it all together
